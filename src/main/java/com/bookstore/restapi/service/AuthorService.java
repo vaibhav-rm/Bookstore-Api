@@ -1,6 +1,5 @@
 package com.bookstore.restapi.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -10,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.bookstore.restapi.exception.ResourceNotFoundException;
 import com.bookstore.restapi.model.Author;
-import com.bookstore.restapi.model.Book;
 import com.bookstore.restapi.repository.AuthorRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -56,11 +54,5 @@ public class AuthorService {
             throw new ResourceNotFoundException("Author not found with id: " + id);
         }
         authorRepository.deleteById(id);
-    }
-
-    public List<Book> getAuthorBooks(Long id) {
-        Author author = authorRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Author not found with id: " + id));
-        return author.getBooks();
     }
 }
