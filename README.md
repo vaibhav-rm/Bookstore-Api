@@ -1,6 +1,6 @@
 # Bookstore RESTful API
 
-A comprehensive RESTful API for managing books and authors in a bookstore, built with Spring Boot, JPA, and H2 Database.
+A comprehensive RESTful API for managing books and authors in a bookstore, built with Spring Boot, JPA, and H2 Database made as the final project for Elevate Labs internship.
 
 ## Features
 
@@ -32,7 +32,7 @@ A comprehensive RESTful API for managing books and authors in a bookstore, built
 
 1. Clone the repository:
 \`\`\`bash
-git clone <repository-url>
+git clone https://github.com/vaibhav-rm/Bookstore-Api
 cd bookstore-api
 \`\`\`
 
