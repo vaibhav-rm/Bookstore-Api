@@ -20,6 +20,7 @@ public class HomeController {
         apiInfo.put("name", "Bookstore API");
         apiInfo.put("version", "1.0.0");
         apiInfo.put("description", "RESTful API for managing books and authors");
+        apiInfo.put("credits", "vaibhav from elevate labs");
         
         Map<String, String> endpoints = new HashMap<>();
         endpoints.put("authors", "/api/authors");
