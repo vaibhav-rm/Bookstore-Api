@@ -1,0 +1,295 @@
+{
+  "info": {
+    "name": "Bookstore API",
+    "description": "Complete API collection for the Bookstore RESTful API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/api",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authors",
+      "item": [
+        {
+          "name": "Get All Authors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/authors?page=0&size=10&sortBy=lastName&sortDir=asc",
+              "host": ["{{baseUrl}}"],
+              "path": ["authors"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "10" },
+                { "key": "sortBy", "value": "lastName" },
+                { "key": "sortDir", "value": "asc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Author by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/authors/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["authors", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Author",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"Stephen\",\n    \"lastName\": \"King\",\n    \"birthDate\": \"1947-09-21\",\n    \"biography\": \"American author of horror, supernatural fiction, suspense, crime, science-fiction, and fantasy novels.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/authors",
+              "host": ["{{baseUrl}}"],
+              "path": ["authors"]
+            }
+          }
+        },
+        {
+          "name": "Update Author",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"Stephen\",\n    \"lastName\": \"King\",\n    \"birthDate\": \"1947-09-21\",\n    \"biography\": \"Updated biography: American author known for horror and supernatural fiction.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/authors/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["authors", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Author",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/authors/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["authors", "1"]
+            }
+          }
+        },
+        {
+          "name": "Search Authors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/authors/search?name=King&page=0&size=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["authors", "search"],
+              "query": [
+                { "key": "name", "value": "King" },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Prolific Authors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/authors/prolific?bookCount=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["authors", "prolific"],
+              "query": [{ "key": "bookCount", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Books",
+      "item": [
+        {
+          "name": "Get All Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/books?page=0&size=10&sortBy=title&sortDir=asc",
+              "host": ["{{baseUrl}}"],
+              "path": ["books"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "10" },
+                { "key": "sortBy", "value": "title" },
+                { "key": "sortDir", "value": "asc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Book by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/books/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Book by ISBN",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/books/isbn/978-0747532699",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "isbn", "978-0747532699"]
+            }
+          }
+        },
+        {
+          "name": "Create Book",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"The Shining\",\n    \"isbn\": \"978-0307743657\",\n    \"publicationDate\": \"1977-01-28\",\n    \"genre\": \"HORROR\",\n    \"price\": 14.99,\n    \"description\": \"A horror novel about a family isolated in a haunted hotel.\",\n    \"stockQuantity\": 20,\n    \"author\": {\n        \"id\": 1\n    }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/books",
+              "host": ["{{baseUrl}}"],
+              "path": ["books"]
+            }
+          }
+        },
+        {
+          "name": "Update Book",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"The Shining - Updated\",\n    \"isbn\": \"978-0307743657\",\n    \"publicationDate\": \"1977-01-28\",\n    \"genre\": \"HORROR\",\n    \"price\": 16.99,\n    \"description\": \"Updated description: A horror novel about a family isolated in a haunted hotel.\",\n    \"stockQuantity\": 15,\n    \"author\": {\n        \"id\": 1\n    }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/books/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Book",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/books/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "1"]
+            }
+          }
+        },
+        {
+          "name": "Search Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/books/search?title=Harry&genre=FANTASY&minPrice=10&maxPrice=20&page=0&size=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "search"],
+              "query": [
+                { "key": "title", "value": "Harry" },
+                { "key": "genre", "value": "FANTASY" },
+                { "key": "minPrice", "value": "10" },
+                { "key": "maxPrice", "value": "20" },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Books by Genre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/books/genre/FANTASY?page=0&size=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "genre", "FANTASY"],
+              "query": [{ "key": "page", "value": "0" }, { "key": "size", "value": "10" }]
+            }
+          }
+        },
+        {
+          "name": "Get Books by Author",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/books/author/1?page=0&size=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "author", "1"],
+              "query": [{ "key": "page", "value": "0" }, { "key": "size", "value": "10" }]
+            }
+          }
+        },
+        {
+          "name": "Get Low Stock Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/books/low-stock?threshold=30",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "low-stock"],
+              "query": [{ "key": "threshold", "value": "30" }]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
